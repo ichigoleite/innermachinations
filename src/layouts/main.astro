@@ -1,7 +1,10 @@
 ---
 import Head from "../components/head.astro";
 import Footer from "../components/footer.astro";
+import Header from "../components/header.astro";
 import bg from "../assets/images/bg.png";
+import "normalize.css";
+import "../styles/main.css";
 const bgurl = `url(${bg.src})`;
 ---
 
@@ -16,14 +19,7 @@ const bgurl = `url(${bg.src})`;
 <html lang="en">
   <Head />
   <body>
-    <h1>the inner machinations of ichigoleite</h1>
-    <h2>
-      a compilation of miitomo questions (no i don't plan to do harm the title
-      is misleading it is just a dumb <a
-        href="https://youtu.be/gmgij8s8K2I?si=LGMypu1Q-TrtX81O&t=528"
-        target="_blank">reference</a
-      >)
-    </h2>
+    <Header />
     <hr />
     <slot />
     <hr />
