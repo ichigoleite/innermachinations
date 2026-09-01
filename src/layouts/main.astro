@@ -1,0 +1,32 @@
+---
+import Head from "../components/head.astro";
+import Footer from "../components/footer.astro";
+import bg from "../assets/images/bg.png";
+const bgurl = `url(${bg.src})`;
+---
+
+<!-- add background -->
+<style define:vars={{ bgurl }}>
+  html {
+    background-image: "http://mtquestions.ichigoleite.com/actualbg.gif";
+    background-image: "/assets/images/actualbg.gif";
+    background-image: var(--bgurl);
+  }
+</style>
+<html lang="en">
+  <Head />
+  <body>
+    <h1>the inner machinations of ichigoleite</h1>
+    <h2>
+      a compilation of miitomo questions (no i don't plan to do harm the title
+      is misleading it is just a dumb <a
+        href="https://youtu.be/gmgij8s8K2I?si=LGMypu1Q-TrtX81O&t=528"
+        target="_blank">reference</a
+      >)
+    </h2>
+    <hr />
+    <slot />
+    <hr />
+    <Footer />
+  </body>
+</html>
