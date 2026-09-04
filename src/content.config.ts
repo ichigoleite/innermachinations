@@ -7,7 +7,7 @@ import { z } from "astro/zod";
 
 // Define a `loader` and `schema` for each collection
 const questions = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/blog" }),
+  loader: glob({ pattern: "**/[^_]*.md", base: "./src/content/questions" }),
   schema: ({ image }) =>
     z.object({
       question: z.string(),
