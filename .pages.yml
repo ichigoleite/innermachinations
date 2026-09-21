@@ -7,24 +7,7 @@ content:
     view:
       fields: [question, answer]
     fields:
-      - name: question
-        label: Question
-        type: text
-        required: true
-      - name: answer
-        label: Answer
-        type: text
-        required: true
-      - name: to
-        label: Directed To
-        type: text
-      - name: date
-        label: Date
-        type: date
       - name: image
         label: Image
         type: image
         required: true
-      - name: notes
-        label: Notes
-        type: rich-text
