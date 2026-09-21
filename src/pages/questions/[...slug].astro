@@ -1,0 +1,60 @@
+---
+import { getCollection } from "astro:content";
+import "../../styles/pages/questions.css";
+import Main from "../../layouts/main.astro";
+import { Image } from "astro:assets";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("questions");
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+// parse time from id
+const date = new Date();
+
+date.setUTCFullYear(
+  Number(post.id.slice(0, 4)),
+  Number(post.id.slice(4, 6)) - 1,
+  Number(post.id.slice(6, 8)),
+);
+date.setUTCHours(
+  Number(post.id.slice(8, 10)),
+  Number(post.id.slice(10, 12)),
+  Number(post.id.slice(12, 14)),
+  0,
+);
+---
+
+<Main description="" image={post.data.data.default.src}>
+  <a href="/">Back to index</a>
+  <hr />
+  <h1>Question</h1>
+  <span>(taken on {date.toLocaleString()})</span>
+  <Image
+    class="innermachinations-question-image"
+    src={post.data.data.default}
+    alt="Question"
+  />
+  <hr />
+  <script
+    src="https://giscus.app/client.js"
+    data-repo="ichigoleite/innermachinations"
+    data-repo-id="R_kgDOUKaVlQ"
+    data-category="Questions"
+    data-category-id="DIC_kwDOUKaVlc4DGDY4"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="top"
+    data-theme="preferred_color_scheme"
+    data-lang="en"
+    crossorigin="anonymous"
+    async
+  ></script>
+</Main>

@@ -1,27 +1,35 @@
 ---
 import { Head } from "astro-capo";
+const { title, description, image } = Astro.props;
 ---
 
 <Head>
   <meta charset="utf-8" />
-  <title>the inner machinations of ichigoleite</title>
+  <title>{title ?? "the inner machinations of ichigoleite"}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="ichigoleite" />
   <meta
     name="description"
-    content="a compilation of miitomo questions (no i don't plan to do harm the title
-    is misleading it is just a dumb reference)"
+    content={description ??
+      "a compilation of miitomo questions (no i don't plan to do harm the title is misleading it is just a dumb reference)"}
   />
   <meta
     property="og:image"
-    content="https://mtquestions.ichigoleite.com/bg.png"
+    content={image ?? "https://mtquestions.ichigoleite.com/bg.png"}
   />
   <meta
     property="og:description"
-    content="a compilation of miitomo questions (no i don't plan to do harm the title
-    is misleading it is just a dumb reference)"
+    content={description ??
+      "a compilation of miitomo questions (no i don't plan to do harm the title is misleading it is just a dumb reference)"}
   />
-  <meta property="og:title" content="the inner machinations of ichigoleite" />
+  <meta
+    property="og:title"
+    content={title ?? "the inner machinations of ichigoleite"}
+  />
+  <meta
+    property="og:site_name"
+    content="the inner machinations of ichigoleite"
+  />
   <link
     rel="icon"
     type="image/png"
