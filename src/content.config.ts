@@ -18,7 +18,7 @@ const questions = defineCollection({
     // Must return an array of entries with an id property
     // or an object with IDs as keys and entries as values
     return items.map((item: any) => ({
-      id: item,
+      id: item.split("/").at(-1).split(".")[0],
       data: files[item],
     }));
   },
