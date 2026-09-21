@@ -1,9 +1,27 @@
 ---
+import { getCollection } from "astro:content";
 import Main from "../layouts/main.astro";
+import "../styles/pages/index.css";
+import { Image } from "astro:assets";
+
+const questions = await getCollection("questions");
 ---
 
 <Main>
   <h1>Welcome!</h1>
   <p>This is a compilation of Miitomo questions that I've answered.</p>
   <p>Enjoy at your own pace or something.</p>
+  <section id="innermachinations-questions">
+    {
+      questions.map((item) => (
+        <a href={`/questions/${item.id}`}>
+          <Image
+            class="innermachinations-questions-question-image"
+            src={item.data.data.default}
+            alt="Question"
+          />
+        </a>
+      ))
+    }
+  </section>
 </Main>
