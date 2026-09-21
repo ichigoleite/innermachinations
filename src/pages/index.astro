@@ -5,6 +5,42 @@ import "../styles/pages/index.css";
 import { Image } from "astro:assets";
 
 const questions = await getCollection("questions");
+
+questions.sort((a, b) => {
+  // parse time from id
+  const adate = new Date();
+
+  adate.setUTCFullYear(
+    Number(a.id.slice(0, 4)),
+    Number(a.id.slice(4, 6)) - 1,
+    Number(a.id.slice(6, 8)),
+  );
+  adate.setUTCHours(
+    Number(a.id.slice(8, 10)),
+    Number(a.id.slice(10, 12)),
+    Number(a.id.slice(12, 14)),
+    0,
+  );
+
+  const bdate = new Date();
+
+  bdate.setUTCFullYear(
+    Number(b.id.slice(0, 4)),
+    Number(b.id.slice(4, 6)) - 1,
+    Number(b.id.slice(6, 8)),
+  );
+  bdate.setUTCHours(
+    Number(b.id.slice(8, 10)),
+    Number(b.id.slice(10, 12)),
+    Number(b.id.slice(12, 14)),
+    0,
+  );
+  if (bdate >= adate) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
 ---
 
 <Main>
