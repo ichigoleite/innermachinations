@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import "../../styles/pages/questions.css";
 import Main from "../../layouts/main.astro";
-import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
 
 export async function getStaticPaths() {
   const posts = await getCollection("questions");
@@ -30,14 +30,15 @@ date.setUTCHours(
 );
 ---
 
-<Main description="" image={post.data.data.default.src}>
+<Main description="" image={post.data.data}>
   <a href="/">Back to index</a>
   <hr />
   <h1>Question</h1>
   <span>(taken on {date.toLocaleString()})</span>
-  <Image
+  <img
     class="innermachinations-question-image"
-    src={post.data.data.default}
+    src={post.data.data}
+    width="1280"
     alt="Question"
   />
   <hr />
@@ -55,6 +56,5 @@ date.setUTCHours(
     data-theme="preferred_color_scheme"
     data-lang="en"
     crossorigin="anonymous"
-    async
-  ></script>
+    async></script>
 </Main>

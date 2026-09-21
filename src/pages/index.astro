@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import Main from "../layouts/main.astro";
 import "../styles/pages/index.css";
-import { Image } from "astro:assets";
 
 const questions = await getCollection("questions");
 
@@ -55,9 +54,10 @@ questions.sort((a, b) => {
     {
       questions.map((item) => (
         <a href={`/questions/${item.id}`}>
-          <Image
+          <img
             class="innermachinations-questions-question-image"
-            src={item.data.data.default}
+            src={item.data.data}
+            width="1280"
             alt="Question"
           />
         </a>

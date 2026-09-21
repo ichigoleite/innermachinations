@@ -17,7 +17,7 @@ feel free to use, after all it is under the MIT license
         - public/pages/index.astro (Index page)
         - public/pages/questions/[...slug].astro (Question page (IMPORTANT! Update the Giscus script element to your own repository! ([Giscus](https://giscus.app/))))
 
-2.  Add all your Miitomo question images in src/content/questions. The filename should be in this format: yyyyMMddHHmmss, pictures imported from Miitomo should automatically be in this format.
+2.  Add all your Miitomo question images in public/questionsimg. The filename should be in this format: yyyyMMddHHmmss, pictures imported from Miitomo should automatically be in this format.
 
 3.  Build and host this project on your preferred hosting provider (e.g Cloudflare Pages).
 
